@@ -1,37 +1,39 @@
-import { Typography, Link } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import React from 'react';
-import {Box, AppBar, Toolbar} from '@mui/material'
+// import {Box, AppBar, Toolbar} from '@mui/material'
+import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 function Navbar() {
     return (
-        <Box sx={{ flexGrow:1}}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" sx={{ flexGrow:1}}>
-                        WE EAT
-                    </Typography>
-                    <Link
-                        component="button"
-                        color='inherit'
-                        variant="body1"
-                        href='./pages/Profile.jsx'
-                    >
-                       profile
-                    </Link>
-                    
-                    <Link
-                        component="button"
-                        background-color='#463415'
-                        color='inherit'
-                        variant="body1"
-                        href='./pages/login.jsx'
-                    >
-                       logout
-                    </Link>
-                </Toolbar>
-            </AppBar>
-        </Box>
+        <Grid container>
+            <Grid item xs={9}>
+                <Typography variant="h3">WE EAT</Typography>
+            </Grid>
+            <Grid item xs={1}>
+                <Link to='/home'>
+                    <Button variant="text">
+                        home
+                    </Button>
+                </Link>
+                
+            </Grid>
+            <Grid item xs={1}>
+                <Link to='profile'>
+                    <Button variant="text">
+                        profile
+                    </Button>
+                </Link>
+            </Grid>
+            <Grid item xs={1}>
+                <Link to='/'>
+                    <Button variant="contained">
+                        logout
+                    </Button>
+                </Link> 
+            </Grid>
+        </Grid>
     )
 }
 
