@@ -1,3 +1,5 @@
+import { getInfo } from './yelp.js'
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -14,6 +16,9 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// REST APIS
 
 app.get('/api/get', (req, res) => {
     const sqlSelect = "SELECT * FROM users";
@@ -57,3 +62,32 @@ app.put('/api/update', (req, res) => {
 app.listen(3001, () => {
     console.log("ru on port 3001");
 });
+
+
+function getCuisines(userList) {
+    var cuisineCount = {};
+
+    for (let i = 0; i < userList.length; i++) {
+        // GET USER CUISINE STRING HERE
+
+        for (let j = 0; j < cuisineList.length; j++) {
+            cuisineCount[cuisineList[j]] = (cuisineCount[cuisineList[j]] || 0) + 1
+        }
+    }
+
+    return cuisineCount
+}
+
+function findRestaurants(cuisineList, location, price, radius) {
+    let params = [
+        { locale: "en_US" },
+        { location: location},
+        { term: "restaurants" },
+        { categories: cuisineList},
+        { price: price},
+        { open_now: true},
+        { radius: radius },
+        { sort_by: "rating" },
+        { limit: 6 }
+    ]
+}
