@@ -5,7 +5,6 @@ class Restaurant extends Component {
     constructor(props) {
         super(props);
     }
-    props.name
     render() {
         return (
             <Card sx={{ maxWidth: 342 }}>
@@ -18,7 +17,7 @@ class Restaurant extends Component {
                     <Grid container align="left">
                         <Grid item xs={10}>
                             <Typography id="name" variant="h5">
-                                {props.name}
+                                RESTAURANT NAME
                             </Typography>
                         </Grid>
                         <Grid item xs={2}>
