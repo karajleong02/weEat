@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 
 export default class restaurant extends Component() {
@@ -6,8 +6,6 @@ export default class restaurant extends Component() {
         super(props);
         this.state = { name: '', rating: {}, distance: {}, price: {}, cuisine: '', description: '' };
     }
-
-    // const[name, setName] = useState([]);
 
     render() {
         return (
