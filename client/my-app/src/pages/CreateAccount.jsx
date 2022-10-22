@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button, Grid, TextField, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -58,9 +59,10 @@ class CreateAccount extends React.Component {
             />
           </Grid>
           <Grid item xs={12} align='center'>
-            <Button variant="contained">create</Button>
+            <Link to='/profile'>
+                <Button variant="contained">create</Button>        
+            </Link>
           </Grid>
-          
         </Grid>
         
       </form>
