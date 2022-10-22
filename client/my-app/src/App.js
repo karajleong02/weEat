@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Suggestions from './pages/Suggestions';
-import Navbar from './components/Navbar';
+import CreateAccount from './pages/CreateAccount';
 
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/createAccount" element={<CreateAccount />} />
       </Routes> 
     </div>
      
