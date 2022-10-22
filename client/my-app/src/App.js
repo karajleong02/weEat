@@ -1,6 +1,16 @@
 import './App.css';
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import Axios from "axios";
+=======
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Suggestions from './pages/Suggestions';
+import CreateAccount from './pages/CreateAccount';
+>>>>>>> main
 
 
 function App() {
@@ -40,6 +50,7 @@ function App() {
   }
 
   return (
+<<<<<<< HEAD
     <div className="App">
       <h1>CRUD APPLICATION</h1>
 
@@ -70,7 +81,19 @@ function App() {
           );
         })}
       </div>
+=======
+    <div>
+
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/createAccount" element={<CreateAccount />} />
+      </Routes> 
+>>>>>>> main
     </div>
+     
   );
 }
 
