@@ -18,54 +18,24 @@ class CreateAccount extends React.Component {
 
   
 
-  handleChange(event) {
+  handleChange(event){
     this.setState({email: event.target.email});
+    this.setState({username: event.target.username});
+    this.setState({password: event.target.password});
   }
 
   handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value);
     event.preventDefault();
+    alert("NNNNONANDWONDAIODNWAIONDFIAO");
+    alert(this.state.email);
+    Axios.post('http://localhost:3001/api/insert', {
+      username: this.state.username, 
+      password: this.state.password,
+      email: this.state.email
+    });
   }
 
   render() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [userList, setUserList] = useState([]);
-    const [newPassword, setNewPassword] = useState('');
-
-    useEffect(() => {
-      Axios.get('http://localhost:3001/api/get').then((response) => {
-        setUserList(response.data)
-      })
-    }, [])
-
-    const registerUser = () => {
-      Axios.post('http://localhost:3001/api/insert', {
-        username: username, 
-        password: password,
-      });
-
-      setUserList([
-        ...userList, 
-        {username: username, password: password}
-      ]);
-    };
-
-    const deleteUser = (username) => {
-      Axios.delete(`http://localhost:3001/api/delete/${username}`)
-    };
-
-    const updatePassword = (username) => {
-      Axios.put('http://localhost:3001/api/update', {
-        username: username,
-        password: newPassword,
-      });
-      // setNewPassword("")
-    }
-
-    const getCuisine = (userList) => {
-
-    }
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -77,8 +47,8 @@ class CreateAccount extends React.Component {
                 required
                 sx={{width:438}}
                 id="outlined-required"
-                onChange={this.handleChange}
                 value={this.state.email}
+                onChange={this.handleChange}
               />  
           </Grid>
           <Grid item xs={1}><Typography variant="body1" align='right'>username: </Typography></Grid>
@@ -88,6 +58,7 @@ class CreateAccount extends React.Component {
               sx={{width:438}}
               id="outlined-required username"
               value={this.state.username}
+              onChange={this.handleChange}
             />
           </Grid>
           <Grid item xs={1}><Typography variant="body1" align='right'>password: </Typography></Grid>
@@ -97,11 +68,12 @@ class CreateAccount extends React.Component {
               sx={{width:438}}
               id="outlined-required password"
               value={this.state.password}
+              onChange={this.handleChange}
             />
           </Grid>
           <Grid item xs={12} align='center'>
             <Link to='/profile'>
-                <Button variant="contained">create</Button>        
+                <Button variant="contained" type="submit" onClick={this.handleSubmit}>create</Button>        
             </Link>
           </Grid>
         </Grid>
