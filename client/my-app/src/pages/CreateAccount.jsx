@@ -19,15 +19,16 @@ class CreateAccount extends React.Component {
   
 
   handleChange(event){
-    this.setState({email: event.target.email});
-    this.setState({username: event.target.username});
-    this.setState({password: event.target.password});
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     alert("NNNNONANDWONDAIODNWAIONDFIAO");
-    alert(this.state.email);
     Axios.post('http://localhost:3001/api/insert', {
       username: this.state.username, 
       password: this.state.password,
@@ -47,6 +48,7 @@ class CreateAccount extends React.Component {
                 required
                 sx={{width:438}}
                 id="outlined-required"
+                name = "email"
                 value={this.state.email}
                 onChange={this.handleChange}
               />  
@@ -57,6 +59,7 @@ class CreateAccount extends React.Component {
               required
               sx={{width:438}}
               id="outlined-required username"
+              name = "username"
               value={this.state.username}
               onChange={this.handleChange}
             />
@@ -67,6 +70,7 @@ class CreateAccount extends React.Component {
               required
               sx={{width:438}}
               id="outlined-required password"
+              name = "password"
               value={this.state.password}
               onChange={this.handleChange}
             />
