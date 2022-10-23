@@ -4,6 +4,12 @@ import { Grid, Card, CardMedia, CardContent, Typography } from '@mui/material';
 class Restaurant extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            name: '',
+            distance: 0,
+            price: '',
+            
+        };
     }
     render() {
         return (
@@ -17,12 +23,12 @@ class Restaurant extends Component {
                     <Grid container align="left">
                         <Grid item xs={10}>
                             <Typography id="name" variant="h5">
-                                RESTAURANT NAME
+                                {this.props.name}
                             </Typography>
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="distance" variant="body1">
-                                1.5 mi
+                                {this.props.distance}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -30,7 +36,7 @@ class Restaurant extends Component {
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="price" variant="h6">
-                                $$
+                                {this.props.}
                             </Typography>
                         </Grid>
                         <Grid item xs={10}>
