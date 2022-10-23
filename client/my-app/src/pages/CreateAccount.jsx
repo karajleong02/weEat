@@ -11,7 +11,6 @@ class CreateAccount extends React.Component {
       username: '',
       password: ''
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -29,7 +28,7 @@ class CreateAccount extends React.Component {
     return (
       <>
         <Link to="/">
-          <Button variant="text">login</Button>
+          <Button variant="text">back to login</Button>
         </Link>
         <form onSubmit={this.handleSubmit}>
           <Grid container rowSpacing={3} columnSpacing={1}>
