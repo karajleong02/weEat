@@ -36,7 +36,7 @@ class Restaurant extends Component {
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="price" variant="h6">
-                                {this.props.}
+                                {this.props.price}
                             </Typography>
                         </Grid>
                         <Grid item xs={10}>
