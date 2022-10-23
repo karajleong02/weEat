@@ -14,6 +14,7 @@ function Suggestions() {
                         distance="1.5"
                         price="$$"
                         cuisine="American"
+                        rating={4.5}
                         url="https://www.mcdonalds.com/us/en-us.html"
                         imgURL="https://img.freepik.com/free-photo/hamburger-with-beef-meat-burger-fresh-vegetables-dark-surface_2829-5883.jpg?w=2000&t=st=1666490821~exp=1666491421~hmac=28b0d17814f2de389e886ac794e9109be9e602b13a1a19c65d087843a3403478"
                     ></Restaurant>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, Link } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, Link, Rating } from '@mui/material';
 
 class Restaurant extends Component {
     constructor(props) {
@@ -31,11 +31,11 @@ class Restaurant extends Component {
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="distance" variant="body1">
-                                {this.state.distance}
+                                {this.state.distance} mi
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <h3>STARS</h3>
+                            <Rating value={this.state.rating} precision={0.1} readOnly/>
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="price" variant="h6">
