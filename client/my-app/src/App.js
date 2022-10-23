@@ -1,10 +1,16 @@
 import './App.css';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 =======
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 >>>>>>> nateBranch
+=======
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+import React from 'react';
+>>>>>>> 297664cd741ca73b0b161b2d931d3289ec86fac8
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -15,8 +21,11 @@ import CreateAccount from './pages/CreateAccount';
 
 function App() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 297664cd741ca73b0b161b2d931d3289ec86fac8
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userList, setUserList] = useState([]);
@@ -56,10 +65,12 @@ function App() {
 
   }
 
+<<<<<<< HEAD
 >>>>>>> nateBranch
+=======
+>>>>>>> 297664cd741ca73b0b161b2d931d3289ec86fac8
   return (
     <div>
-
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
