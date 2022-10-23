@@ -1,6 +1,5 @@
 import { Typography, Button } from '@mui/material';
 import React from 'react';
-// import {Box, AppBar, Toolbar} from '@mui/material'
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -20,19 +19,20 @@ function Navbar() {
                 
             </Grid>
             <Grid item xs={1} align="center">
-                <Link to='/profile'>
-                    <Button variant="text">
-                        profile
-                    </Button>
-                </Link>
-            </Grid>
-            <Grid item xs={1} align="center">
                 <Link to='/suggestions'>
                     <Button variant="text">
                         suggestions
                     </Button>
                 </Link> 
             </Grid>
+            <Grid item xs={1} align="center">
+                <Link to='/profile'>
+                    <Button variant="text">
+                        profile
+                    </Button>
+                </Link>
+            </Grid>
+            
             <Grid item xs={1}>
                 <Link to='/'>
                     <Button variant="contained">
