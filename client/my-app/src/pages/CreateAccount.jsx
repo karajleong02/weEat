@@ -1,7 +1,7 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Axios from "axios";
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -16,6 +16,8 @@ class CreateAccount extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  
+
   handleChange(event) {
     this.setState({email: event.target.email});
   }
@@ -26,6 +28,45 @@ class CreateAccount extends React.Component {
   }
 
   render() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [userList, setUserList] = useState([]);
+    const [newPassword, setNewPassword] = useState('');
+
+    useEffect(() => {
+      Axios.get('http://localhost:3001/api/get').then((response) => {
+        setUserList(response.data)
+      })
+    }, [])
+
+    const registerUser = () => {
+      Axios.post('http://localhost:3001/api/insert', {
+        username: username, 
+        password: password,
+      });
+
+      setUserList([
+        ...userList, 
+        {username: username, password: password}
+      ]);
+    };
+
+    const deleteUser = (username) => {
+      Axios.delete(`http://localhost:3001/api/delete/${username}`)
+    };
+
+    const updatePassword = (username) => {
+      Axios.put('http://localhost:3001/api/update', {
+        username: username,
+        password: newPassword,
+      });
+      // setNewPassword("")
+    }
+
+    const getCuisine = (userList) => {
+
+    }
+
     return (
       <form onSubmit={this.handleSubmit}>
         <Grid container rowSpacing={3} columnSpacing={1}>
