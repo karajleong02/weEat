@@ -27,7 +27,6 @@ class CreateAccount extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    alert("NNNNONANDWONDAIODNWAIONDFIAO");
     Axios.post('http://localhost:3001/api/insert', {
       username: this.state.username, 
       password: this.state.password,

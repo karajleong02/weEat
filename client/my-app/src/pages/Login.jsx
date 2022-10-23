@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Typography, TextField } from '@mui/material';
+import Axios from "axios";
 
 
 class Login extends React.Component {
@@ -22,7 +23,17 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-
+        event.preventDefault();
+        Axios.post('http://localhost:3001/api/checklogin/', {
+            username: this.state.username,
+            password: this.state.password
+        }).then((response) => {
+            if (response.data.message) {
+                console.log(response.data)
+            } else {
+                console.log(response.data[0].username)
+            }
+        });
     }
 
     render() {
@@ -61,7 +72,7 @@ class Login extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <Link to='/home'>
-                                    <Button variant="contained">login</Button>        
+                                    <Button variant="contained" type="submit" onClick={this.handleSubmit}>login</Button>        
                                 </Link>
                             </Grid>
                             <Grid item xs={12}>
