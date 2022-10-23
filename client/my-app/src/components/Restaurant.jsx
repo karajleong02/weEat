@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, Link } from '@mui/material';
 
 class Restaurant extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            distance: 0,
-            price: '',
-            
+            name: this.props.name,
+            distance: this.props.distance,
+            price: this.props.price,
+            rating: this.props.rating,
+            cuisine: this.props.cuisine,
+            url: this.props.url,
+            imgURL: this.props.imgURL
         };
     }
     render() {
@@ -17,18 +20,18 @@ class Restaurant extends Component {
                 <CardMedia
                     component="img"
                     height="231"
-                    image="setimg"
+                    src={this.state.imgURL}
                 />
                 <CardContent>
                     <Grid container align="left">
                         <Grid item xs={10}>
                             <Typography id="name" variant="h5">
-                                {this.props.name}
+                                {this.state.name}
                             </Typography>
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="distance" variant="body1">
-                                {this.props.distance}
+                                {this.state.distance}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -36,17 +39,17 @@ class Restaurant extends Component {
                         </Grid>
                         <Grid item xs={2}>
                             <Typography id="price" variant="h6">
-                                {this.props.}
+                                {this.state.price}
                             </Typography>
                         </Grid>
                         <Grid item xs={10}>
                             <Typography id="cuisine" variant="h6">
-                                Korean
+                                {this.state.cuisine}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Typography id="description" variant="body1">
-                                description
+                                <Link src={this.state.url}>{this.state.url}</Link>
                             </Typography>
                         </Grid>
                     </Grid>
