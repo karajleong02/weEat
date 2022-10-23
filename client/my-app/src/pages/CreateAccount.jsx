@@ -1,7 +1,7 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Axios from "axios";
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -15,16 +15,28 @@ class CreateAccount extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({email: event.target.email});
+  
+
+  handleChange(event){
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value);
     event.preventDefault();
+    alert("NNNNONANDWONDAIODNWAIONDFIAO");
+    Axios.post('http://localhost:3001/api/insert', {
+      username: this.state.username, 
+      password: this.state.password,
+      email: this.state.email
+    });
   }
 
   render() {
+
     return (
       <>
         <Link to="/">
@@ -48,6 +60,38 @@ class CreateAccount extends React.Component {
               <TextField
                 required
                 sx={{width:438}}
+                id="outlined-required"
+                name = "email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />  
+          </Grid>
+          <Grid item xs={1}><Typography variant="body1" align='right'>username: </Typography></Grid>
+          <Grid item xs={11}>
+            <TextField
+              required
+              sx={{width:438}}
+              id="outlined-required username"
+              name = "username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+          </Grid>
+          <Grid item xs={1}><Typography variant="body1" align='right'>password: </Typography></Grid>
+          <Grid item xs={11}>
+            <TextField
+              required
+              sx={{width:438}}
+              id="outlined-required password"
+              name = "password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} align='center'>
+            <Link to='/profile'>
+                <Button variant="contained" type="submit" onClick={this.handleSubmit}>create</Button>        
+            </Link>
                 id="outlined-required username"
                 value={this.state.username}
               />
